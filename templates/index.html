@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Chiron</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+        }
+
+        .chat-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        .subtitle {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #6c757d;
+        }
+
+        .chat-box {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.assistant {
+            justify-content: flex-start;
+        }
+
+        .bubble {
+            padding: 12px 16px;
+            border-radius: 20px;
+            max-width: 75%;
+            line-height: 1.4;
+        }
+
+        .user .bubble {
+            background-color: #d1e7dd;
+            color: #0f5132;
+            border-bottom-right-radius: 0;
+        }
+
+        .assistant .bubble {
+            background-color: #e2e3e5;
+            color: #41464b;
+            border-bottom-left-radius: 0;
+        }
+
+        .chat-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        textarea {
+            resize: none;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            height: 80px;
+        }
+
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0b5ed7;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Chiron Logo -->
+    <div class="logo-container">
+        <img src="{{ url_for('static', filename='images/chiron_logo.png') }}" alt="Chiron Logo" class="logo">
+    </div>
+
+    <!-- Chat UI -->
+    <div class="chat-container">
+        <p class="subtitle">Dijital danışmanınız</p>
+
+        <div class="chat-box" id="chat-box">
+            {% if history %}
+                {% for message in history %}
+                    <div class="message {{ message.role }}">
+                        <div class="bubble">{{ message.content }}</div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <form method="POST" class="chat-form" id="chat-form">
+            <textarea id="user_input" name="user_input" placeholder="Bir şeyler yaz..." required></textarea>
+            <button type="submit">Gönder</button>
+        </form>
+
+        <script>
+            const textarea = document.getElementById("user_input");
+            const form = document.getElementById("chat-form");
+    
+            textarea.addEventListener("keydown", function(event) {
+                // Shift+Enter ile alt satıra geçmeye izin ver
+                if (event.key === "Enter" && !event.shiftKey) {
+                    event.preventDefault(); // Enter davranışını engelle
+                    form.submit();          // Formu gönder
+                }
+            });
+        </script>
+    </div>
+</body>
+</html>
