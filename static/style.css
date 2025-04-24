@@ -73,13 +73,16 @@ h1 {
 }
 
 textarea {
-    resize: none;
-    padding: 10px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    height: 80px;
+        resize: none;
+        padding: 8px 12px;
+        font-size: 16px;
+        line-height: 1.4;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+        height: 80px;
+        box-sizing: border-box;
+        white-space: pre-wrap;
 }
 
 button {
@@ -94,4 +97,10 @@ button {
 
 button:hover {
     background-color: #0b5ed7;
+}
+.subtitle {
+    text-align: center;
+    margin-bottom: 16px; /* önce 20px’ti */
+    margin-top: -4px; /* ya da -8px deneyebilirsin */
+    color: #6c757d;
 }
