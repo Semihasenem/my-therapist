@@ -1,10 +1,10 @@
 body {
-        background-color: #f8f9fa;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding: 0.5em 1em 1em 1em; /* üst, sağ, alt, sol */
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
     }
 
 .logo-container {
@@ -13,21 +13,15 @@ body {
 }
 
 .logo {
-    width: auto;
-    max-width: 300px;
-    max-height: 80px;
+    max-width: 300px;  /* büyütmek istersen 350–400 yapabilirsin */
     height: auto;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 8px auto;
 }
 
 .chat-container {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    max-width: 600px;
-    width: 100%;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    text-align: center;
+    margin-bottom: 12px;
 }
 
 h1 {
