@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Chiron | Tanışma</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <div class="intro-box">
+        <h2>Hoş geldin 🌿</h2>
+        <p>
+          Ben Chiron. Sohbetimize geçmeden önce seni biraz tanımak istiyorum. Bu birkaç kısa soruyla, sana daha iyi ve daha özenli bir şekilde eşlik edebilirim.
+        </p>
+        <p>
+          Bu alanlar tamamen gönüllülük esaslıdır. Paylaşmak istemediğin kısımları boş bırakabilirsin.
+        </p>
+        <p>
+          <strong>Gizlilik senin için olduğu kadar benim için de önemli.</strong><br>
+          İsmini, e-posta adresini ya da kişisel bilgilerini asla saklamam ya da paylaşmam.
+        </p>
+        <p>
+          Verdiğin her cevap, sohbetimizin senin için daha anlamlı olmasına yardımcı olur. Ne kadar kendin gibi olabilirsen, o kadar verimli bir yolculuk olur ✨
+        </p>
+      </div>
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 2em;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 1.5em;
+        }
+
+        label {
+            display: block;
+            margin: 1em 0 0.5em;
+            font-weight: bold;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 0.75em;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            margin-top: 2em;
+            width: 100%;
+            padding: 0.8em;
+            background-color: #618e9f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #4c7588;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Merhaba, önce biraz tanışalım 🌿</h2>
+        <form method="POST">
+            <label for="isim">1. Sana nasıl hitap etmemi istersin?</label>
+            <input type="text" id="isim" name="isim">
+
+            <label for="ruh_hali">2. Şu anda genel ruh halini nasıl tanımlarsın?</label>
+            <input type="text" id="ruh_hali" name="ruh_hali">
+
+            <label for="gundem">3. Aklını şu sıralar en çok ne meşgul ediyor?</label>
+            <textarea id="gundem" name="gundem"></textarea>
+
+            <label for="ozel">4. Kendinle ilgili özel bir şey paylaşmak ister misin?</label>
+            <textarea id="ozel" name="ozel"></textarea>
+
+            <label for="beklenti">5. Bu sohbetten bir beklentin var mı?</label>
+            <textarea id="beklenti" name="beklenti"></textarea>
+
+            <button type="submit">Sohbete Başla</button>
+        </form>
+    </div>
+</body>
+</html>
